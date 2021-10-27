@@ -1,24 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="DrawPolygonApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="th7-Rm-gmg" customClass="CanvasView" customModule="DrawPolygonApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="768"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bT9-sx-q6l">
+                                <rect key="frame" x="20" y="812" width="374" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Dn-gs-jY6">
+                                        <rect key="frame" x="0.0" y="0.0" width="90" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="90" id="ORC-oe-C9d"/>
+                                        </constraints>
+                                        <state key="normal" title="Reset"/>
+                                        <connections>
+                                            <action selector="resetPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5sB-NE-9Ub"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nMU-Jq-XEW">
+                                        <rect key="frame" x="284" y="0.0" width="90" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="90" id="PiV-nV-ZwL"/>
+                                        </constraints>
+                                        <state key="normal" title="Complete"/>
+                                        <connections>
+                                            <action selector="completePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aJm-ul-8ww"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="nMU-Jq-XEW" firstAttribute="top" secondItem="bT9-sx-q6l" secondAttribute="top" id="4BE-cS-t2u"/>
+                                    <constraint firstAttribute="bottom" secondItem="0Dn-gs-jY6" secondAttribute="bottom" id="79S-gq-RbW"/>
+                                    <constraint firstAttribute="height" constant="50" id="Ni1-OO-tem"/>
+                                    <constraint firstItem="0Dn-gs-jY6" firstAttribute="top" secondItem="bT9-sx-q6l" secondAttribute="top" id="cNF-iq-q08"/>
+                                    <constraint firstAttribute="bottom" secondItem="nMU-Jq-XEW" secondAttribute="bottom" id="hsZ-SF-NRT"/>
+                                    <constraint firstAttribute="trailing" secondItem="nMU-Jq-XEW" secondAttribute="trailing" id="qXo-dr-keN"/>
+                                    <constraint firstItem="0Dn-gs-jY6" firstAttribute="leading" secondItem="bT9-sx-q6l" secondAttribute="leading" id="vdC-6w-HrU"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bT9-sx-q6l" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="0fT-aJ-mqC"/>
+                            <constraint firstItem="bT9-sx-q6l" firstAttribute="top" secondItem="th7-Rm-gmg" secondAttribute="bottom" id="4L5-dn-0Va"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bT9-sx-q6l" secondAttribute="trailing" id="7MP-XE-QtP"/>
+                            <constraint firstItem="bT9-sx-q6l" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="SjK-5f-3sc"/>
+                            <constraint firstItem="th7-Rm-gmg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="dSF-nc-yjK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="th7-Rm-gmg" secondAttribute="trailing" id="oVb-rw-yTv"/>
+                            <constraint firstItem="th7-Rm-gmg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="y7a-IL-sdx"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="canvasView" destination="th7-Rm-gmg" id="znw-9q-sRG"/>
+                        <outlet property="completeButton" destination="nMU-Jq-XEW" id="p31-tY-q2n"/>
+                        <outlet property="resetButton" destination="0Dn-gs-jY6" id="p4d-Dq-Ekx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="132" y="117"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
