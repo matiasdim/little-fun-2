@@ -79,7 +79,6 @@ class CanvasView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         backgroundColor = .systemGray2
-        layoutIfNeeded()
     }
 }
 
